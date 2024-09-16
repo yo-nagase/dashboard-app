@@ -45,18 +45,8 @@ export function OrganizationFormComponent() {
       // })
       // if (!response.ok) throw new Error('Failed to save organization')
 
-      toast({
-        title: "Organization saved",
-        description: "The organization information has been successfully saved.",
-      })
-      router.push('/organizations') // Redirect to organizations list page
-    } catch (error) {
-      console.error('Error saving organization:', error)
-      toast({
-        title: "Error",
-        description: "There was a problem saving the organization information.",
-        variant: "destructive",
-      })
+      console.log(organizationData)
+
     } finally {
       setIsLoading(false)
     }
