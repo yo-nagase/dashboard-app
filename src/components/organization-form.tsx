@@ -15,7 +15,7 @@ interface OrganizationData {
 }
 
 export function OrganizationFormComponent() {
-  const router = useRouter()
+  // const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
