@@ -66,6 +66,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { SidebarTrigger } from "./ui/sidebar"
 
 export function DashboardPreview() {
   return (
@@ -126,6 +127,7 @@ export function DashboardPreview() {
               </nav>
             </SheetContent>
           </Sheet>
+          <SidebarTrigger />
           <Breadcrumb className="hidden md:flex">
             <BreadcrumbList>
               <BreadcrumbItem>

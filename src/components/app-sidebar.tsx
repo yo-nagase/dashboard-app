@@ -65,8 +65,8 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Dashboard2",
+          url: "/dashboard2",
           icon: History,
           description: "View your recent prompts",
         },
