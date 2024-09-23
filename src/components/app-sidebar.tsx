@@ -59,8 +59,8 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
+      title: "Dashboard",
+      url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -110,13 +110,13 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
-      url: "#",
+      title: "Master",
+      url: "/organization",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Organization",
+          url: "/organization",
         },
         {
           title: "Get Started",
