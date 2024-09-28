@@ -91,3 +91,41 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .responsive-bg {
+    background-color: theme('colors.green.200');
+  }
+}
+
+@layer utilities {
+  @screen smobile {
+    .smobile\:responsive-bg {
+      background-color: theme('colors.yellow.600');
+    }
+  }
+
+  @screen sm {
+    .sm\:responsive-bg {
+      background-color: theme('colors.yellow.300');
+    }
+  }
+
+  @screen md {
+    .md\:responsive-bg {
+      background-color: theme('colors.blue.300');
+    }
+  }
+
+  @screen lg {
+    .lg\:responsive-bg {
+      background-color: theme('colors.red.400');
+    }
+  }
+
+  @screen xl {
+    .xl\:responsive-bg {
+      background-color: theme('colors.red.600');
+    }
+  }
+}
