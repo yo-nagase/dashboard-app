@@ -1,0 +1,29 @@
+name: "🏪 ExecE2E"
+run-name: 🔐 ${{ inputs.action }} ${{ inputs.branch }} branch for protection
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        description: Whether to set the branch as read-only
+        options:
+          - Lock
+          - Unlock
+      branch:
+        description: Branch to manage
+        required: true
+        default: "main"
+jobs:
+  update-branch-protection:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Generate GitHub App Token
+      #   uses: actions/create-github-app-token@v1
+      #   id: app-token
+      #   with:
+      #     app-id: ${{ secrets.APP_ID }}
+      #     private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Echo Workflow Start
+        run: echo "Workflow started for ${{ inputs.action }} on branch ${{ inputs.branch }}"
