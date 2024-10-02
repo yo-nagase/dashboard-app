@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { Avatar } from '@radix-ui/react-avatar'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
 interface OrganizationData {
   name: string;
@@ -62,16 +64,32 @@ export function OrganizationFormComponent() {
       >
         テストボタン
       </Button>
-      <div className="max-w-lg mx-auto p-8">
-        <details className="close:bg-red-200 open:text-red-500 bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
-          <summary className="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-            Why do they call it Ovaltine?
-          </summary>
-          <div className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-            <p className="open:text-red-500">The mug is round. The jar is round. They should call it Roundtine.</p>
-          </div>
-        </details>
+      <Card className="bg-red-500 sm:max-w-sm">
+        <CardHeader>
+          <CardTitle>Organization Information</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>This card contains important organization details.</p>
+        </CardContent>
+      </Card>
+    
+      <div className="gap-2 columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+        <div className="w-full bg-white text-black text-center">a</div>
+        <div className="w-full bg-white text-black text-center">b</div>
+        <div className="w-full bg-white text-black text-center">c</div>
+        <div className="w-full bg-white text-black text-center">d</div>
+        <div className="w-full bg-white text-black text-center">e</div>
+        <div className="box-content h-32 w-32 p-4 border-2 ">xxx</div>
       </div>
+
+      <div className="relative ">
+        <p>Relative parent</p>
+        <div className="absolute bottom-0 left-0 ">
+          <p>Absolute child</p>
+        </div>
+      </div>
+
+
 
       <h1 className="text-2xl font-bold mb-6">Add Organization</h1>
       <p className="text-green-200 sm:text-red-500 max-[200px]:text-purple-500">xxxxxxppppx</p>
