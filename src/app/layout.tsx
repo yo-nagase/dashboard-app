@@ -4,6 +4,9 @@ import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/react"
+import { SidebarLayout } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { cookies } from "next/headers";
 
 
 const geistSans = localFont({
@@ -38,10 +41,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         > */}
-        {children}
-        <SpeedInsights />
-        <Analytics />
-        <ToastProvider />
+        <SidebarLayout
+          defaultOpen={cookies().get("sidebar:state")?.value === "true"}
+        >
+          <AppSidebar />
+          {children}
+          <SpeedInsights />
+          <Analytics />
+          <ToastProvider />
+        </SidebarLayout>
         {/* </ThemeProvider> */}
       </body>
     </html>
