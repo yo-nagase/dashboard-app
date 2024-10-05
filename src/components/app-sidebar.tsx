@@ -60,13 +60,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard",
+      url: "/main/dashboard",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "Dashboard2",
-          url: "/dashboard2",
+          url: "/main/dashboard2",
           icon: History,
           description: "View your recent prompts",
         },
@@ -111,12 +111,12 @@ const data = {
     },
     {
       title: "Master",
-      url: "/organization",
+      url: "/main/organization",
       icon: BookOpen,
       items: [
         {
           title: "Organization",
-          url: "/organization",
+          url: "/main/organization",
         },
         {
           title: "Get Started",

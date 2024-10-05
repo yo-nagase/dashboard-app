@@ -37,22 +37,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        > */}
-        <SidebarLayout
-          defaultOpen={cookies().get("sidebar:state")?.value === "true"}
-        >
-          <AppSidebar />
-          {children}
-          <SpeedInsights />
-          <Analytics />
-          <ToastProvider />
-        </SidebarLayout>
-        {/* </ThemeProvider> */}
+        {children}
+        <SpeedInsights />
+        <Analytics />
+        <ToastProvider />
+
+
       </body>
     </html>
   );
