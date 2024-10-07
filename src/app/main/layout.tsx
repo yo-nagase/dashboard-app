@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import "../globals.css";
 
+
 import { SidebarLayout } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { cookies } from "next/headers";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { Link, ChevronDown } from "lucide-react";
+import React from "react";
+
 
 
 export const metadata: Metadata = {
@@ -17,14 +23,52 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+    <header className="flex items-center justify-between px-4 py-2 bg-background border-b">
+        <div className="flex items-center space-x-2">
+          <Link href="/" className="font-semibold text-lg">
+            Vercel
+          </Link>
+          <nav className="hidden md:flex items-center space-x-1">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm">Products <ChevronDown className="ml-1 h-3 w-3" /></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Product 1</DropdownMenuItem>
+                <DropdownMenuItem>Product 2</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm">Solutions <ChevronDown className="ml-1 h-3 w-3" /></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Solution 1</DropdownMenuItem>
+                <DropdownMenuItem>Solution 2</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Button variant="ghost" size="sm">Resources</Button>
+            <Button variant="ghost" size="sm">Enterprise</Button>
+            <Button variant="ghost" size="sm">Docs</Button>
+            <Button variant="ghost" size="sm">Pricing</Button>
+          </nav>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Button variant="ghost" size="sm">Log In</Button>
+          <Button size="sm">Contact</Button>
+          <Button variant="secondary" size="sm">Sign Up</Button>
+        </div>
+      </header>
+      
+      <SidebarLayout
+        defaultOpen={cookies().get("sidebar:state")?.value === "true"}
+      >
+        <AppSidebar />
+        {children}
 
-    <SidebarLayout
-      defaultOpen={cookies().get("sidebar:state")?.value === "true"}
-    >
-      <AppSidebar />
-      {children}
+      </SidebarLayout>
 
-    </SidebarLayout>
-
+    </>
   );
 }
