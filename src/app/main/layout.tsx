@@ -25,9 +25,7 @@ export default function MainLayout({
 }>) {
   return (
     <>
-
       <TopMenuBar />
-
       <SidebarLayout
         defaultOpen={cookies().get("sidebar:state")?.value === "true"}
       >

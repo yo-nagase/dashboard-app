@@ -249,7 +249,7 @@ const data = {
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar className="mt-[50px]">
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
