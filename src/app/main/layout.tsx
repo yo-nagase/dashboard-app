@@ -24,11 +24,13 @@ export default function MainLayout({
 }>) {
   return (
     <>
-    <header className="flex items-center justify-between px-4 py-2 bg-background border-b">
+      <header className="flex items-center justify-between px-4 py-2 bg-background border-b">
         <div className="flex items-center space-x-2">
-          <Link href="/" className="font-semibold text-lg">
-            Vercel
-          </Link>
+
+          <span className="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M20 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M12 8v-2" /><path d="M12 18v-2" /><path d="M18.7 8.7l-1.4-1.4" /><path d="M6.7 6.7l-1.4-1.4" /><path d="M18.7 15.3l-1.4 1.4" /><path d="M6.7 17.3l-1.4 1.4" /></svg>
+            <span className="font-bold text-xl tracking-tight font-logo">Demo App</span>
+          </span>
           <nav className="hidden md:flex items-center space-x-1">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -60,7 +62,7 @@ export default function MainLayout({
           <Button variant="secondary" size="sm">Sign Up</Button>
         </div>
       </header>
-      
+
       <SidebarLayout
         defaultOpen={cookies().get("sidebar:state")?.value === "true"}
       >
