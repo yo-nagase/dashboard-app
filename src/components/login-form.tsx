@@ -40,7 +40,7 @@ export function LoginForm() {
             </div>
             <Input id="password" type="password" required />
           </div>
-          <Link href="/dashboard">
+          <Link href="/main/dashboard">
             <Button type="submit" className="w-full">
               Login
             </Button>
