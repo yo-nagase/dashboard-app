@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import "../globals.css";
 
-
 import { SidebarLayout } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { cookies } from "next/headers";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { Link, ChevronDown } from "lucide-react";
 import React from "react";
 import TopMenuBar from "@/components/top-menubar";
-
 
 
 export const metadata: Metadata = {
@@ -26,14 +21,15 @@ export default function MainLayout({
   return (
     <>
       <TopMenuBar />
-      <SidebarLayout
-        defaultOpen={cookies().get("sidebar:state")?.value === "true"}
-      >
-        <AppSidebar />
-        {children}
+      <div className="pt-12"> {/* TopMenuBarの高さ分のパディングを追加 */}
 
-      </SidebarLayout>
-
+        <SidebarLayout
+          defaultOpen={cookies().get("sidebar:state")?.value === "true"}
+        >
+          <AppSidebar />
+          {children}
+        </SidebarLayout>
+      </div>
     </>
   );
 }
