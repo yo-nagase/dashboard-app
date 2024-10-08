@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 
-import { SidebarLayout } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { cookies } from "next/headers";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Link, ChevronDown } from "lucide-react";
@@ -16,9 +13,9 @@ export const metadata: Metadata = {
 export default function TopMenuBar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
-      <div className="container mx-auto flex items-center justify-between h-12 px-1">
-        <div className="flex items-center space-x-4">
-          <span className="flex items-center">
+      <div className="w-full flex  justify-between h-12 px-4">
+        <div className="flex items-center">
+          <span className="flex items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M20 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M12 8v-2" /><path d="M12 18v-2" /><path d="M18.7 8.7l-1.4-1.4" /><path d="M6.7 6.7l-1.4-1.4" /><path d="M18.7 15.3l-1.4 1.4" /><path d="M6.7 17.3l-1.4 1.4" /></svg>
             <span className="font-bold text-xl tracking-tight font-logo">Demo App</span>
           </span>
