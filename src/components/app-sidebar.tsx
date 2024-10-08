@@ -249,11 +249,11 @@ const data = {
 
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[50px]">
+    <Sidebar className="mt-[50px] flex flex-col h-[calc(100vh-50px)]">
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="flex-grow overflow-y-auto">
         <SidebarItem>
           <SidebarLabel>Platform</SidebarLabel>
           <NavMain items={data.navMain} searchResults={data.searchResults} />
@@ -262,7 +262,7 @@ export function AppSidebar() {
           <SidebarLabel>Projects</SidebarLabel>
           <NavProjects projects={data.projects} />
         </SidebarItem>
-        <SidebarItem className="mt-auto">
+        <SidebarItem>
           <SidebarLabel>Help</SidebarLabel>
           <NavSecondary items={data.navSecondary} />
         </SidebarItem>
