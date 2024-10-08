@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button";
 import { Link, ChevronDown } from "lucide-react";
 import React from "react";
+import { ModeToggle } from "./ModeToggle";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -45,6 +46,7 @@ export default function TopMenuBar() {
           </nav>
         </div>
         <div className="flex items-center space-x-2">
+          <ModeToggle />
           <Button variant="ghost" size="sm">Log In</Button>
           <Button size="sm">Contact</Button>
           <Button variant="secondary" size="sm">Sign Up</Button>

@@ -21,8 +21,7 @@ export default function MainLayout({
   return (
     <>
       <TopMenuBar />
-      <div className="pt-12"> {/* TopMenuBarの高さ分のパディングを追加 */}
-
+      <div className="pt-12 "> {/* TopMenuBarの高さ分のパディングを追加 */}
         <SidebarLayout
           defaultOpen={cookies().get("sidebar:state")?.value === "true"}
         >

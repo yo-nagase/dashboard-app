@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SidebarLayout } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { cookies } from "next/headers";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 
@@ -37,7 +38,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+
         <SpeedInsights />
         <Analytics />
         <ToastProvider />
