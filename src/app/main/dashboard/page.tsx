@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/AppSidebar"
 import Charts from "@/components/charts-01"
 import { OrganizationFormComponent } from "@/components/organization-form"
 import {
