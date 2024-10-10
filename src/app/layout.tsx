@@ -4,24 +4,10 @@ import "./globals.css";
 import { ToastProvider } from "@/components/ui/toast";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/react"
-import { SidebarLayout } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { cookies } from "next/headers";
 import { ThemeProvider } from "@/components/theme-provider";
 
 
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,10 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -46,12 +31,9 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-
         <SpeedInsights />
         <Analytics />
         <ToastProvider />
-
-
       </body>
     </html>
   );

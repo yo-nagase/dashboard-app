@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 import { SidebarLayout } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 import { cookies } from "next/headers";
 import React from "react";
-import TopMenuBar from "@/components/top-menubar";
+import TopMenuBar from "@/components/TopMenuBar";
 
 
 export const metadata: Metadata = {

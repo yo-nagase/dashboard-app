@@ -10,7 +10,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <div className="flex flex-col min-h-screen">
-
         <main className="flex-grow">
           {children}
         </main>
