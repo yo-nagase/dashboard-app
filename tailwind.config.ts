@@ -9,6 +9,7 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			darkMode: ["class"],
 			screens: {
 				'smobile': '320px',
 			},

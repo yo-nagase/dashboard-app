@@ -72,7 +72,7 @@ export function OrganizationFormComponent() {
           <p>This card contains important organization details.</p>
         </CardContent>
       </Card>
-    
+
       <div className="gap-2 columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         <div className="w-full bg-white text-black text-center">a</div>
         <div className="w-full bg-white text-black text-center">b</div>
@@ -80,6 +80,9 @@ export function OrganizationFormComponent() {
         <div className="w-full bg-white text-black text-center">d</div>
         <div className="w-full bg-white text-black text-center">e</div>
         <div className="box-content h-32 w-32 p-4 border-2 ">xxx</div>
+      </div>
+      <div className="bg-white dark:bg-black">
+        いろがかわる
       </div>
 
       <div className="relative ">
