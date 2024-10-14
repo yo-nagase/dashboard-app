@@ -27,7 +27,7 @@ export default function TopMenuBar() {
           <nav className="hidden md:flex items-center space-x-1">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="default" className=" hover:bg-gray-800">Products <ChevronDown className="ml-1 h-3 w-3" /></Button>
+                <Button variant="ghost" size="default" className=" hover:bg-gray-800 dark:hover:bg-red-100">Products <ChevronDown className="ml-1 h-3 w-3" /></Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>Product 1</DropdownMenuItem>
