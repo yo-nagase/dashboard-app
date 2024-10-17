@@ -29,6 +29,9 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting ${{ inputs.name }}
-      run: echo 'Hello ${{ inputs.name }} http://www.yahooo.co.jp'
+      run: |
+        echo 'Hello ${{ inputs.name }}'
+        echo 'http://www.yahooo.co.jp'
+        echo "next comment
 
       
