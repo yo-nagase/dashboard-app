@@ -9,16 +9,21 @@ import { Textarea } from "@/components/ui/textarea"
 import { Avatar } from '@radix-ui/react-avatar'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
-interface OrganizationData {
-  name: string;
-  description: string;
-  website: string;
-  employeeCount: number;
-}
+// コンポーネントの分割
+const OrganizationCard = () => (
+  <Card className="bg-red-500 sm:max-w-sm">
+    <CardHeader>
+      <CardTitle>Organization Information</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p>This card contains important organization details.</p>
+    </CardContent>
+  </Card>
+);
 
+// メインコンポーネント
 export function OrganizationFormComponent() {
-  // const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -59,19 +64,13 @@ export function OrganizationFormComponent() {
 
       <Button
         type="submit"
-        className="hover:bg-green-200 bg-blue-200"
+        className="hover:bg-green-200 bg-blue-200 dark:bg-red-500"
         disabled={isLoading}
       >
         テストボタン
       </Button>
-      <Card className="bg-red-500 sm:max-w-sm">
-        <CardHeader>
-          <CardTitle>Organization Information</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>This card contains important organization details.</p>
-        </CardContent>
-      </Card>
+      <OrganizationCard />
+      <div className="bg-red-500 dark:bg-blue-500">あいうえお</div>
 
       <div className="gap-2 columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         <div className="w-full bg-white text-black text-center">a</div>
