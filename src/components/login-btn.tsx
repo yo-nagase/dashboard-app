@@ -35,6 +35,13 @@ export default function LoginButton() {
         <RiMicrosoftFill className="mr-2 h-4 w-4" />
         Azure B2Cでログイン
       </Button>
+      <Button
+        variant="outline"
+        onClick={() => signIn('azure-ad')}
+      >
+        <RiMicrosoftFill className="mr-2 h-4 w-4" />
+        Azure ADでログイン
+      </Button>
     </div>
   )
 }
