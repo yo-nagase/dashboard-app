@@ -1,57 +1,44 @@
-import NextAuth, { DefaultSession, DefaultUser } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
+import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+import { Session } from "next-auth"
+import { JWT } from "next-auth/jwt"
 
 declare module "next-auth" {
-  interface Session extends DefaultSession {
+  interface Session {
     user: {
-      role?: string;
-    } & DefaultSession["user"]
-  }
-
-  interface User extends DefaultUser {
-    role?: string;
+      id?: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    }
   }
 }
 
-const handler = NextAuth({
+if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
+  throw new Error('Missing GitHub OAuth credentials');
+}
+
+export const authOptions = {
+  // Configure one or more authentication providers
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: { label: "Password", type: "password" }
-      },
-      async authorize(credentials, req) {
-        // ここで実際の認証ロジックを実装します
-        // 例: データベースチェック、外部APIコール等
-        if (credentials?.username === "admin" && credentials?.password === "password") {
-          return { id: "1", name: "Admin", email: "admin@example.com", role: "admin" }
-        } else if (credentials?.username === "user" && credentials?.password === "password") {
-          return { id: "2", name: "User", email: "user@example.com", role: "user" }
-        } else if (credentials?.username === "manager" && credentials?.password === "password") {
-          return { id: "3", name: "Manager", email: "manager@example.com", role: "manager" }
-        }
-        return null
-      }
-    })
+    GithubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
+    // ...add more providers here
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role
-      }
-      return token
-    },
-    async session({ session, token }) {
-      if (session.user) {
-        //  session.user.role = token.role
+    async session({ session, token }: { session: Session; token: JWT }) {
+      if (session?.user) {
+        session.user.id = token.sub
       }
       return session
-    }
+    },
   },
   pages: {
     signIn: '/login',
-  }
-})
+  },
+}
 
+const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }

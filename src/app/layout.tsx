@@ -5,9 +5,7 @@ import { ToastProvider } from "@/components/ui/toast";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/theme-provider";
-
-
-
+import { NextAuthProvider } from "@/components/providers/next-auth-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,18 +20,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-        <SpeedInsights />
-        <Analytics />
-        <ToastProvider />
+      <body>
+        <NextAuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <SpeedInsights />
+          <Analytics />
+          <ToastProvider />
+        </NextAuthProvider>
       </body>
     </html>
   );
