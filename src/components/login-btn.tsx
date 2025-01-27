@@ -19,25 +19,29 @@ export default function LoginButton() {
     )
   }
 
+  const handleSignIn = (provider: string) => {
+    signIn(provider, { callbackUrl: '/main/dashboard' })
+  }
+
   return (
     <div className="flex flex-col gap-2">
       <Button
         variant="outline"
-        onClick={() => signIn('github')}
+        onClick={() => handleSignIn('github')}
       >
         <Github className="mr-2 h-4 w-4" />
         GitHubでログイン
       </Button>
       <Button
         variant="outline"
-        onClick={() => signIn('azure-ad-b2c')}
+        onClick={() => handleSignIn('azure-ad-b2c')}
       >
         <RiMicrosoftFill className="mr-2 h-4 w-4" />
         Azure B2Cでログイン
       </Button>
       <Button
         variant="outline"
-        onClick={() => signIn('azure-ad')}
+        onClick={() => handleSignIn('azure-ad')}
       >
         <RiMicrosoftFill className="mr-2 h-4 w-4" />
         Azure ADでログイン
