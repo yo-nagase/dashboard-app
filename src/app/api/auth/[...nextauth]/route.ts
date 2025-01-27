@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
+import AzureADB2CProvider from "next-auth/providers/azure-ad-b2c"
 import { Session } from "next-auth"
 import { JWT } from "next-auth/jwt"
 
@@ -18,12 +19,22 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   throw new Error('Missing GitHub OAuth credentials');
 }
 
+if (!process.env.AZURE_AD_B2C_CLIENT_ID || !process.env.AZURE_AD_B2C_CLIENT_SECRET || !process.env.AZURE_AD_B2C_TENANT_NAME) {
+  throw new Error('Missing Azure AD B2C credentials');
+}
+
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
+    }),
+    AzureADB2CProvider({
+      clientId: process.env.AZURE_AD_B2C_CLIENT_ID!,
+      clientSecret: process.env.AZURE_AD_B2C_CLIENT_SECRET!,
+      issuer: `https://${process.env.AZURE_AD_B2C_TENANT_NAME}.b2clogin.com/${process.env.AZURE_AD_B2C_TENANT_ID}/${process.env.AZURE_AD_B2C_PRIMARY_USER_FLOW}/v2.0`,
+      authorization: { params: { scope: "offline_access openid" } },
     }),
     // ...add more providers here
   ],
