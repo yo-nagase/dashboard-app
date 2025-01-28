@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { logout } from "@/lib/auth"
 import { useRouter } from "next/navigation"
+import { useLogout } from "@/hooks/use-logout"
 
 export function NavUser({
   user,
@@ -34,10 +35,8 @@ export function NavUser({
 }) {
   const router = useRouter();
 
-  const handleLogOut = () => {
-    console.log('Logging out...');
-    logout()
-  };
+ 
+  
 
   const handleAccount = () => {
     router.push("/main/account");
@@ -100,7 +99,7 @@ export function NavUser({
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="gap-2" onClick={handleLogOut}>
+        <DropdownMenuItem className="gap-2" onClick={useLogout()}>
           <LogOut className="h-4 w-4 text-muted-foreground" />
           Log out
         </DropdownMenuItem>

@@ -1,23 +1,17 @@
 "use client"
 
-import { signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
+import { useLogout } from "@/hooks/use-logout"
 
-interface LogoutButtonProps {
-  className?: string
-}
-
-export function LogoutButton({ className }: LogoutButtonProps) {
-  const handleLogout = async () => {
-    await signOut({ redirect: true, callbackUrl: "/login" })
-  }
-
+export function LogoutButton() {
   return (
-    <Button
-      onClick={handleLogout}
-      className={className}
-    >
-      Logout
-    </Button>
+    <div>
+      <Button
+        onClick={useLogout()}
+        className="w-full"
+      >
+        Logout
+      </Button>
+    </div>
   )
 } 

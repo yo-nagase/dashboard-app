@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import React from "react";
 import { ModeToggle } from "./mode-toggle-button";
-import { LogoutButton } from "../github-logout-button";
+import { LogoutButton } from "../logout-button";
 import { NavUserInfo } from "../user-info";
 
 export const metadata: Metadata = {
