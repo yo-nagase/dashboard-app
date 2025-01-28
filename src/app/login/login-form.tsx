@@ -1,13 +1,18 @@
 "use client"
 import { cn } from "@/lib/utils"
-
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { useRouter, useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
+import SsoButtons from "./sso-buttons"
 
 export function LoginForm({
   className,
@@ -44,7 +49,7 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
@@ -88,31 +93,8 @@ export function LoginForm({
             </div>
           </form>
         </CardContent>
-        <Button
-          onClick={() => handleSignInGithub()}
-          className="w-full"
-        >
-          Login with Github
-        </Button>
-        <Button
-          onClick={() => handleSignInAzure()}
-          className="w-full"
-        >
-          Login with Azure AD
-        </Button>
-        <Button
-          onClick={() => handleSignInEntraAd()}
-          className="w-full"
-        >
-          🔑Login with Entra AD
-        </Button>
-        <Button
-          onClick={() => handleSignInAzureB2C()}
-          className="w-full"
-        >
-          Login with Azure AD B2C
-        </Button>
-      </Card>
+      </Card> */}
+      <SsoButtons />
     </div>
   )
 }
