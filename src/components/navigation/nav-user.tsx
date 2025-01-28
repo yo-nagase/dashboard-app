@@ -20,6 +20,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { logout } from "@/lib/auth"
+import { useRouter } from "next/navigation"
 
 export function NavUser({
   user,
@@ -30,6 +32,17 @@ export function NavUser({
     avatar: string
   }
 }) {
+  const router = useRouter();
+
+  const handleLogOut = () => {
+    console.log('Logging out...');
+    logout()
+  };
+
+  const handleAccount = () => {
+    router.push("/main/account");
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="w-full rounded-md outline-none ring-ring hover:bg-accent focus-visible:ring-2 data-[state=open]:bg-accent">
@@ -73,7 +86,7 @@ export function NavUser({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="gap-2">
+          <DropdownMenuItem className="gap-2" onClick={handleAccount}>
             <BadgeCheck className="h-4 w-4 text-muted-foreground" />
             Account
           </DropdownMenuItem>
@@ -87,7 +100,7 @@ export function NavUser({
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="gap-2">
+        <DropdownMenuItem className="gap-2" onClick={handleLogOut}>
           <LogOut className="h-4 w-4 text-muted-foreground" />
           Log out
         </DropdownMenuItem>

@@ -4,18 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import {
   File,
-  Home,
-  LineChart,
   ListFilter,
   MoreHorizontal,
-  Package,
-  Package2,
-  PanelLeft,
   PlusCircle,
   Search,
-  Settings,
-  ShoppingCart,
-  Users2,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -46,7 +38,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
   Table,
   TableBody,
@@ -61,18 +52,12 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { SidebarTrigger } from "./ui/sidebar"
 
 export function DashboardPreview() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-white dark:bg-black">
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">         
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <Breadcrumb className="hidden md:flex">
             <BreadcrumbList>
               <BreadcrumbItem>

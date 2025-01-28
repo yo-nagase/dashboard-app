@@ -1,12 +1,12 @@
-"use client"
 import type { Metadata } from "next";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Link, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import React from "react";
-import { ModeToggle } from "./ModeToggle";
-import { useTheme } from "next-themes";
+import { ModeToggle } from "./mode-toggle-button";
+import { LogoutButton } from "../github-logout-button";
+import { NavUserInfo } from "../user-info";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function TopMenuBar() {
-  const { theme } = useTheme()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white dark:bg-black bg-opacity-90  dark:bg-opacity-80">
       <div className="w-full flex  justify-between h-12 px-4">
         <div className="flex items-center">
           <span className="flex items-center mr-4">
@@ -25,35 +24,26 @@ export default function TopMenuBar() {
             <span className="font-bold text-xl tracking-tight font-logo">Demo App</span>
           </span>
           <nav className="hidden md:flex items-center space-x-1">
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="default" className=" hover:bg-gray-800 dark:hover:bg-red-100">Products <ChevronDown className="ml-1 h-3 w-3" /></Button>
+                <Button variant="ghost" size="default" className="hover:bg-gray-800">Button1 <ChevronDown className="ml-1 h-3 w-3" /></Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Product 1</DropdownMenuItem>
-                <DropdownMenuItem>Product 2</DropdownMenuItem>
+                <DropdownMenuItem>menu 1</DropdownMenuItem>
+                <DropdownMenuItem>menu 2</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="default" className="hover:bg-gray-800">Solutions <ChevronDown className="ml-1 h-3 w-3" /></Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Solution 1</DropdownMenuItem>
-                <DropdownMenuItem>Solution 2</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <Button variant="ghost" size="default" className="hover:bg-gray-800">Resources</Button>
-            <Button variant="ghost" size="default" className="hover:bg-gray-800">Enterprise</Button>
-            <Button variant="ghost" size="default" className="hover:bg-gray-800">Docs</Button>
-            <Button variant="ghost" size="default" className="hover:bg-gray-800">Pricing</Button>
+            <Button variant="ghost" size="default" className="hover:bg-gray-800">Button2</Button>
+            <Button variant="ghost" size="default" className="hover:bg-gray-800">Button3</Button>
           </nav>
         </div>
         <div className="flex items-center space-x-2">
+          <NavUserInfo />
           <ModeToggle />
-          <Button variant="ghost" size="sm">Log In</Button>
-          <Button size="sm">Contact</Button>
-          <Button variant="secondary" size="sm">Sign Up</Button>
+          {/* <Button variant="ghost" size="sm">Log In</Button> */}
+          <LogoutButton />
+          {/* <Button variant="secondary" size="sm">Sign Up</Button> */}
         </div>
       </div>
     </header>

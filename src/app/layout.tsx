@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import { ToastProvider } from "@/components/ui/toast";
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/react"
+
+import { NextAuthProvider } from "@/components/next-auth-provider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { NextAuthProvider } from "@/components/providers/next-auth-provider";
+import { ToastProvider } from "@/components/ui/toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,8 +28,6 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
-          <SpeedInsights />
-          <Analytics />
           <ToastProvider />
         </NextAuthProvider>
       </body>

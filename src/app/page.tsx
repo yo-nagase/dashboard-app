@@ -1,17 +1,28 @@
-"use client"
+import { getServerSession } from "next-auth"
+import { authOptions } from "./api/auth/[...nextauth]/route"
+import Link from "next/link"
 
-import LoginButton from "@/components/login-btn"
-import { SessionInfo } from "@/components/session-info"
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  console.log("session🐳", session)
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full space-y-8">
-        <div className="flex justify-end">
-          <LoginButton />
+  if (session?.user) {
+    return (
+      <>
+        <div className="flex flex-col min-h-svh w-full items-center justify-center gap-4 p-6 md:p-10">
+          <h1 className="text-3xl font-bold ">
+            Demo App
+          </h1>
+          <Link href="/login">ログインページへ</Link>
         </div>
-        <SessionInfo />
+      </>
+    )
+  } else {
+    return (
+      <div className="flex flex-col min-h-svh w-full items-center justify-center gap-4 p-6 md:p-10">
+        <Link href="/login">ログインページへ</Link>
+        {/* <SsoLoginButtons /> */}
       </div>
-    </main>
-  )
+    )
+  }
 }
